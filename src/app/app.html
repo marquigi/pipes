@@ -66,6 +66,12 @@
   </div>
   }
 
+  <hr>
+
+  <h4>Async Pipe</h4>
+  <ul>
+    @for (p of dipendenti$ | async ; track $index) {}
+  </ul>
 
 </div>
 <router-outlet />

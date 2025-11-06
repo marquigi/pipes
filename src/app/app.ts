@@ -76,7 +76,9 @@ export class App {
   http = inject(HttpClient);
 
   // NOTA
-  dipendenti$ = this.http.get("https://reqres.in/api/users", {
+  dipendenti$ = this.http.get<{
+    data: { first_name: string; last_name: string }
+  }>("https://reqres.in/api/users", {
     headers: { 'x-api-key': 'reqres-free-v1' }
   });
 
