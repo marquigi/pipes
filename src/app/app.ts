@@ -1,5 +1,5 @@
 import { CurrencyPipe, DatePipe, DecimalPipe, KeyValuePipe, TitleCasePipe } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -12,7 +12,7 @@ interface Persona {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DatePipe, TitleCasePipe, CurrencyPipe, DecimalPipe, KeyValuePipe],
+  imports: [RouterOutlet, DatePipe, TitleCasePipe, CurrencyPipe, DecimalPipe, KeyValuePipe, HttpClientModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -76,7 +76,9 @@ export class App {
   http = inject(HttpClient);
 
   // NOTA
-  dipendenti = this.http.get("https://reqres.in/api/users")
+  dipendenti$ = this.http.get("https://reqres.in/api/users", {
+    headers: { 'x-api-key': 'reqres-free-v1' }
+  });
 
 
   // NOTA
