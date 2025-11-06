@@ -51,6 +51,20 @@
 
   <hr>
 
+  <!-- NOTA -->
+  @for (fascia of mapPersone | keyvalue; track fascia.key) {
+  <div class="row">
+    <div class="col-3">{{ fascia.key }}</div>
+    <div class="col">
+      <ul>
+        <!-- NOTA -->
+        @for (persona of fascia.value; track persona.email) {
+        <li>{{ persona.name }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+  }
 
 
 </div>

@@ -74,18 +74,39 @@ export class App {
   constructor() {
     this.menu.set('Contorni', ['Patate al forno', 'Spinaci ripassati']);
 
+    // NOTA
     for (const p of this.persone) {
+      // NOTA
       let key = "";
+      // NOTA
       if (p.age < 18) {
+        // NOTA
         key = "0 - 17";
+        // NOTA
       } else if (p.age >= 18 && p.age <= 25) {
+        // NOTA
         key = "18 - 25";
+        // NOTA
       } else if (p.age >= 26 && p.age <= 35) {
+        // NOTA
         key = "26 - 35";
+        // NOTA
       } else if (p.age >= 36 && p.age <= 45) {
+        // NOTA
         key = "36 - 45";
+        // NOTA
       } else if (p.age >= 46) {
+        // NOTA
         key = "46+";
+      }
+      // Se è gia presenta la chiave, metto la persona nell'array di quella chiave
+      if (this.mapPersone.has(key)) {
+        // NOTA
+        this.mapPersone.get(key)!.push(p)
+      } else {
+        // Se la chiave non è presente
+        // NOTA
+        this.mapPersone.set(key, [p]);
       }
     }
   }
