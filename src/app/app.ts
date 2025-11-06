@@ -1,5 +1,6 @@
 import { CurrencyPipe, DatePipe, DecimalPipe, KeyValuePipe, TitleCasePipe } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 // NOTA
@@ -68,6 +69,14 @@ export class App {
   // oppure
 
   mapPersone = new Map<string, Persona[]>();
+
+
+
+  // NOTA
+  http = inject(HttpClient);
+
+  // NOTA
+  dipendenti = this.http.get("https://reqres.in/api/users")
 
 
   // NOTA
