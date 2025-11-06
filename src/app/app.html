@@ -27,5 +27,31 @@
       }
     </tbody>
   </table>
+
+  <hr>
+
+  <h3>Utilizzo Map</h3>
+
+  <ul>
+    <!-- NOTA -->
+    @for (i of menu | keyvalue; track $index) {
+    <li>
+      <!-- NOTA -->
+      {{ i.key }}
+      <ul>
+        <!-- NOTA -->
+        @for (piatto of i.value; track $index) {
+        <!-- NOTA -->
+        <li> {{ piatto }}</li>
+        }
+      </ul>
+    </li>
+    }
+  </ul>
+
+  <hr>
+
+
+
 </div>
 <router-outlet />
