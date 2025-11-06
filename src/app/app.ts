@@ -1,4 +1,4 @@
-import { CurrencyPipe, DatePipe, DecimalPipe, KeyValuePipe, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, CurrencyPipe, DatePipe, DecimalPipe, KeyValuePipe, TitleCasePipe } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -12,7 +12,7 @@ interface Persona {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DatePipe, TitleCasePipe, CurrencyPipe, DecimalPipe, KeyValuePipe, HttpClientModule],
+  imports: [RouterOutlet, DatePipe, TitleCasePipe, CurrencyPipe, DecimalPipe, KeyValuePipe, HttpClientModule, AsyncPipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
