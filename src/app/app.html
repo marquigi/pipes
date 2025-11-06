@@ -70,7 +70,10 @@
 
   <h4>Async Pipe</h4>
   <ul>
-    @for (p of dipendenti$ | async ; track $index) {}
+    <!-- NOTA -->
+    @for (p of (dipendenti$ | async)!.data; track $index) {
+    <li>{{ p.first_name }} {{ p.last_name }}</li>
+    }
   </ul>
 
 </div>
