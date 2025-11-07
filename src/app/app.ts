@@ -3,9 +3,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SommaNumeriPipe } from './somma-numeri-pipe';
+import { EtaPipe } from './eta-pipe';
+import { InizialiPipe } from './iniziali-pipe';
+
 
 // NOTA
-interface Persona {
+export interface Persona {
   name: string;
   age: number;
   email: string;
@@ -21,7 +24,9 @@ interface Persona {
     KeyValuePipe,
     HttpClientModule,
     AsyncPipe,
-    SommaNumeriPipe
+    SommaNumeriPipe,
+    EtaPipe,
+    InizialiPipe
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

@@ -81,5 +81,31 @@
 
   <h4>Custom pipe: somma tutti i numeri</h4>
   {{ [324, 231, 2, 45, 25, 98] | sommaNumeri }}
+
+  <hr>
+
+  <h4>Custom pipe applicata a classi CSS</h4>
+  <em>In verde sono evidenziate tutte le persone che hanno meno di 30 anni.</em>
+  <br>
+  <em>In rosso sono evidenziate tutte le persone che hanno più di 60 anni.</em>
+  <ul>
+    <!-- NOTA -->
+    @for (p of persone | iniziali: "G" ; track $index) {
+    <li [class]="p.age | etaCSSClass">{{ p.name }}</li>
+    }
+  </ul>
+
+  <hr>
+
+  <h4>Utilizzo di pipe parametriche</h4>
+  <!-- NOTA -->
+  @for (lettera of ['a','b','c','c','d','e','f']; track $index) {
+  <h6>Lettera {{lettera}}</h6>
+  <!-- NOTA -->
+  @for (p of persone | iniziali:lettera ; track $index) {
+  <li>{{ p.name }}</li>
+  }
+  }
+
 </div>
 <router-outlet />
