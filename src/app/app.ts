@@ -2,6 +2,7 @@ import { AsyncPipe, CurrencyPipe, DatePipe, DecimalPipe, KeyValuePipe, TitleCase
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { SommaNumeriPipe } from './somma-numeri-pipe';
 
 // NOTA
 interface Persona {
@@ -12,7 +13,16 @@ interface Persona {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DatePipe, TitleCasePipe, CurrencyPipe, DecimalPipe, KeyValuePipe, HttpClientModule, AsyncPipe],
+  imports: [RouterOutlet,
+    DatePipe,
+    TitleCasePipe,
+    CurrencyPipe,
+    DecimalPipe,
+    KeyValuePipe,
+    HttpClientModule,
+    AsyncPipe,
+    SommaNumeriPipe
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -123,5 +133,4 @@ export class App {
       }
     }
   }
-
 }
