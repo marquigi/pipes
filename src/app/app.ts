@@ -5,6 +5,8 @@ import { RouterOutlet } from '@angular/router';
 import { SommaNumeriPipe } from './somma-numeri-pipe';
 import { EtaPipe } from './eta-pipe';
 import { InizialiPipe } from './iniziali-pipe';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './filter-pipe';
 
 
 // NOTA
@@ -26,7 +28,9 @@ export interface Persona {
     AsyncPipe,
     SommaNumeriPipe,
     EtaPipe,
-    InizialiPipe
+    InizialiPipe,
+    ReactiveFormsModule,
+    FilterPipe,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -34,6 +38,9 @@ export interface Persona {
 export class App {
   oggi = new Date();
   // NOTA
+
+  // NOTA
+  keyword = new FormControl('');
 
   // NOTA
   genericObj: { [key: string]: string } = {

@@ -102,10 +102,25 @@
   @for (lettera of ['a','b','c','c','d','e','f']; track $index) {
   <h6>Lettera {{lettera}}</h6>
   <!-- NOTA -->
-  @for (p of persone | iniziali:lettera ; track $index) {
-  <li>{{ p.name }}</li>
+  <ul>
+    @for (p of persone | iniziali:lettera ; track $index) {
+    <li>{{ p.name }}</li>
+    }
+  </ul>
   }
-  }
+
+  <hr>
+
+  <h6>Elenco di persone con ricerca</h6>
+  <input type="text clss" class="form-control my-3" placeholder="Cerca..." [formControl]="keyword">
+  <ul>
+    <!-- NOTA -->
+    @for (p of persone | filter: keyword.value! ; track $index) {
+    <li>{{ p.name }}</li>
+    }
+  </ul>
+
+
 
 </div>
 <router-outlet />
